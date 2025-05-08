@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #000000, #1c0000);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    width: 380px;
+    background-color: rgba(68, 0, 0, 0.7); /* efecto semi-transparente */
+    padding: 40px;
+    
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+.login-logo {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.login-card-body label {
+    color: #ddd;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    background-color: #ffffff;
+    border: 1px solid #555;
+    color: #000000;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.form-control:focus {
+    border-color: #420101;
+    outline: none;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.input-group-text {
+    background-color: transparent;
+    border: none;
+    color: #aaa;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: #aa0000;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 6px;
+}
+
+.btn-primary:hover {
+    background-color: #cc0000;
+}
+
+.btn-secondary {
+    width: 100%;
+    background-color: #444;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+}
