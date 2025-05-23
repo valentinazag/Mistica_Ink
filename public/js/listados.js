@@ -4,12 +4,12 @@
             "pageLength": 5,
             "language": {
                 "emptyTable": "No hay información",
-                "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-                "infoEmpty": "Mostrando 0 a 0 de 0 Usuarios",
-                "infoFiltered": "(Filtrado de MAX total Usuarios",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ tatuajes",
+                "infoEmpty": "Mostrando 0 a 0 de 0 tatuajes",
+                "infoFiltered": "(Filtrado de MAX total tatuajes",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Usuarios",
+                "lengthMenu": "Mostrar _MENU_ tatuajes",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",
@@ -38,7 +38,6 @@
                 {
                     extend: "colvis",
                     text: "Visor de columnas",
-                    /* collectionLayout: "fixed three-column" */
 
                 }
             ],

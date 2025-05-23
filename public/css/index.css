@@ -36,7 +36,7 @@ color:white;
   }
   
   .sobre-mi {
-    background-color: #111; /* fondo oscuro elegante */
+    background-color: #300000;
     color: white;
   }
   
@@ -47,7 +47,7 @@ color:white;
   }
   
   .resaltado {
-    color: #e20000; /* rojo profundo o el color que uses en tu marca */
+    color: #e20000; 
 
   }
   
@@ -62,3 +62,12 @@ color:white;
       font-size: 1rem;
     }
   }
+.custom-modal {
+  background-color: #300000; 
+  border-radius: 15px;
+  border: 2px solid #5a0000; 
+}
+
+#modalTitle, #modalDescription {
+  color: white;
+}

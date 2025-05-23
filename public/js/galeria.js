@@ -1,12 +1,16 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll(".gallery-img");
-    const modal = new bootstrap.Modal(document.getElementById('imgModal'));
-    const modalImage = document.getElementById('modalImage');
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.gallery-img').forEach(img => {
+    img.addEventListener('click', () => {
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
 
-    images.forEach(img => {
-      img.addEventListener("click", () => {
-        modalImage.src = img.src;
-        modal.show();
-      });
+      modalImage.src = img.src;
+      modalTitle.textContent = img.dataset.title || '';
+      modalDescription.textContent = img.dataset.description || '';
+
+      const modal = new bootstrap.Modal(document.getElementById('imgModal'));
+      modal.show();
     });
   });
+});

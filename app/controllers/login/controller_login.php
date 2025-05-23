@@ -1,39 +1,28 @@
 <?php
 include("../../config.php");
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-$email = $_POST['email'];
- $pw = $_POST['password'];
+    $email = trim($_POST['email']);
+    $pw = $_POST['password'];
 
-$sql = "SELECT * FROM usuarios WHERE email ='$email'";
+    $sql = "SELECT * FROM usuarios WHERE email = :email";
+    $query = $pdo->prepare($sql);
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->execute();
 
-$query = $pdo->prepare($sql);
-$query->execute();
+    $usuario = $query->fetch(PDO::FETCH_ASSOC);
 
-$usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
-
-$contador = 0;
-
-foreach($usuarios as $usuario){
-$contador = $contador +1;
-$password_tabla = $usuario['password'];
-}
-
-$hash = $password_tabla;
-
-if (($contador > 0) && (password_verify($pw,$hash)))
-{
-    if ($usuario['cargo'] == "ADMINISTRADOR" )
-    {
+    if ($usuario && password_verify($pw, $usuario['password'])) {
         session_start();
-     
         $_SESSION['sesion_email'] = $email;
-    header('Location: '.$URL.'admin/admin.php');
-    }
-}else{
-    echo "Error al iniciar sesión";
 
+        if ($usuario['cargo'] == "ADMINISTRADOR") {
+            header('Location: '.$URL.'admin/admin.php');
+        } else {
+            header('Location: '.$URL.'pages/login/login.php');
+        }
+    } else {
+        header('Location: '.$URL.'pages/login/login.php');
+    }
 }
- 
-}
- 
 ?>

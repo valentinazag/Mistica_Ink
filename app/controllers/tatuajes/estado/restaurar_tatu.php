@@ -4,7 +4,7 @@ include('../../../config.php');
 
 
 
-$id_producto = $_GET['id_tatuaje'];
+$id_tatuaje = $_GET['id_tatuaje'];
 $estado = "activo";
 
 $sentencia = $pdo->prepare("UPDATE tatuajes 

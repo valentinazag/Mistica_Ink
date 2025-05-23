@@ -1,8 +1,8 @@
 <?php 
 include('../../app/config.php');
 include('../../layout/parte1.php');
-include('../../app/controllers/tatuajes/listado_tatu.php');
-session_start();
+include('../../app/controllers/tatuajes/listado_papelera.php');
+
 if (isset($_SESSION['sesion_email'])){
 $email = $_SESSION['sesion_email'];
 
@@ -21,15 +21,29 @@ foreach($usuarios as $usuario){
  header('Location: '.$URL.'login/login.php');
 }
 ?>
+<style>
+  .dataTables_wrapper label,
+  .dataTables_wrapper .dataTables_info,
+  .dataTables_wrapper .dataTables_paginate,
+  .dataTables_wrapper .dataTables_length,
+  .dataTables_wrapper .dataTables_filter {
+    color: #000 !important; 
+  }
 
+  .dataTables_wrapper .dataTables_filter input,
+  .dataTables_wrapper .dataTables_length select {
+    color: #000 !important;
+  }
+</style>
 <div class="container-fluid">
+    <br>
     <h1>
-        Papelera de tatuajes
+        Papelera 
     </h1>
     <div class="row">
-    <div class="text-end mb-2" id="btnEliminarSeleccionados" style="display:none; margin-left:70%">
+    <div class="text-end mb-2" id="btnEliminarSeleccionados"  style="display:none" >
         <div class="d-flex justify-content-end gap-2">
-        <form id="formEliminarSeleccionados" action="../../app/controllers/tatuajes/seleccionados/desactivar_seleccionados_t.php" method="POST">
+        <form id="formEliminarSeleccionados" action="../../app/controllers/tatuajes/seleccionados/eliminar_seleccionados_t.php" method="POST">
     <input type="hidden" name="ids_seleccionados" id="ids_seleccionados_eliminar">
     <button type="submit" class="btn btn-danger">
         Eliminar definitivamente
@@ -49,7 +63,9 @@ foreach($usuarios as $usuario){
         <div class="col-md-12">
             <div class="card card-outline card-warning">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Tatuajes en papelera</b></h3>
+                    
+                    <h3 class="card-title"><b>Tatuajes en papelera</b> <a href="<?php echo $URL?>admin/admin.php" style="margin-left:70%" class="btn btn-secondary text-white">Volver</a></h3>
+                   
                 </div>            
                 <div class="card-body">
                     <table id="example1" class="table table-striped table-bordered table-hover">
@@ -73,7 +89,7 @@ foreach($usuarios as $usuario){
                                     <td><?php echo $tatuaje['titulo']?></td>
                                     <td><?php echo $tatuaje['descripcion']?></td>
                                     <td>
-                                    <img src="../../../public/images/tatuajes/<?php echo $tatuaje['imagen']?>" alt="" width="90px">
+                                    <img src="../../public/images/<?php echo $tatuaje['imagen']?>" alt="" width="90px">
                                     </td>
                                     <td>                                   
                                     <div class="col-md-12">
@@ -81,7 +97,7 @@ foreach($usuarios as $usuario){
                                          <a href="../../app/controllers/tatuajes/estado/restaurar_tatu.php?id_tatuaje=<?php echo $id_tatuaje;?>" class="btn btn-success text-white">
                                          Restaurar
                                          </a>
-                                         <a href="../../app/controllers/tatuajes/eliminar_tatu.php?id_tatuaje=<?php echo $id_tatuaje;?>" class="btn btn-danger text-white">
+                                         <a href="<?php echo $URL?>app/controllers/tatuajes/eliminar_tatu.php?id_tatuaje=<?php echo $id_tatuaje;?>" class="btn btn-danger text-white">
                                          Eliminar definitivamente
                                          </a>
                                         </div>
@@ -100,7 +116,7 @@ foreach($usuarios as $usuario){
         </div>
     </div>
 </div>
-<script src="../public/js/listados.js"></script>
+<script src="../../public/js/papelera.js"></script>
 <?php 
 include('../../layout/parte2.php');
 include('../../layout/mensaje.php');

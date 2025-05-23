@@ -6,7 +6,7 @@ $array_ids = explode(',', $ids_seleccionados);
 
 $estado = "activo";
 
-foreach($array_ids as $id_producto) {
+foreach($array_ids as $id_tatuaje) {
     $sentencia = $pdo->prepare("UPDATE tatuajes SET estado = :estado WHERE id_tatuaje = :id_tatuaje");
     $sentencia->bindParam(':estado', $estado);
     $sentencia->bindParam(':id_tatuaje', $id_tatuaje);
@@ -14,7 +14,7 @@ foreach($array_ids as $id_producto) {
 }
 
 session_start();
-$_SESSION['mensaje'] = "Ttatuajes restaurados exitosamente";
+$_SESSION['mensaje'] = "Tatuajes restaurados exitosamente";
 $_SESSION['icono'] = "success";
 header('Location: '.$URL.'/admin/admin.php');
 ?>
